@@ -1,4 +1,6 @@
-# activegate_extensions
+# Chef Cookbook Activegate Extensions
 
-TODO: Enter the cookbook description here.
+Chef cookbook to manage ActiveGate extensions.
+
+## Work in Progress
 
