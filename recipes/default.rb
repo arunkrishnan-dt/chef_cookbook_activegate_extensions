@@ -11,6 +11,9 @@ node['extensions'].each do |name, properties|
         message "#{name} extension version is #{properties['version']}"
         level :info
     end
+
+    # Check if Extension is the latest version in UI and then update
+    
     
     ruby_block "extension version" do
         block do

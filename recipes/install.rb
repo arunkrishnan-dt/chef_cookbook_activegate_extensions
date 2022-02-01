@@ -4,10 +4,10 @@
 #
 # Copyright:: 2022, The Authors, All Rights Reserved.
 
-log 'install_log' do
-    message "Install - #{node.default['extension']['name']}, #{node.default['extension']['version']}, #{node.default['extension']['os']}"
-    level :info
-end  
+# log 'install_log' do
+#     message "Install - #{node.default['extension']['name']}, #{node.default['extension']['version']}, #{node.default['extension']['os']}"
+#     level :info
+# end  
 
 # setting gloabl vars as local vars for convenience
 name = "#{node.default['extension']['name']}"
@@ -16,10 +16,10 @@ os = "#{node.default['extension']['os']}"
 tmp_dir = "#{node.default['activegate']['tmp_dir']}"
 extension_dir = "#{node.default['activegate']['extension_dir']}"
 
-log 'install_log' do
-    message "Install - Local Variable - #{name}, #{version}, #{os}"
-    level :info
-end  
+# log 'install_log' do
+#     message "Install - Local Variable - #{name}, #{version}, #{os}"
+#     level :info
+# end  
 
 #Download ZIP file
 remote_file "#{node.default['extension']['name']}.zip" do
@@ -27,8 +27,11 @@ remote_file "#{node.default['extension']['name']}.zip" do
     path "#{tmp_dir}/custom.remote.python.#{name}.zip"
     owner 'dtuserag'
     group 'dtuserag'
-    mode '0755'
+    mode '0755'    
 end
+
+# Upload extension to tenancy
+#include_recipe "activegate_extensions::upload"
 
 # Remove existing version (if exists)
 directory 'remove_extension_dir' do
@@ -53,6 +56,3 @@ end
 service 'remotepluginmodule' do
     action :restart
 end
-
-
-# Make API call to update plugin in Web UI
