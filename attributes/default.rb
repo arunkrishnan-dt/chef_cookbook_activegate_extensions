@@ -2,7 +2,8 @@ default['download_repo'] = 'https://dt-cdn.net/hub/extensions'
 default['activegate']['extension_dir'] = '/opt/dynatrace/remotepluginmodule/plugin_deployment'
 default['activegate']['tmp_dir'] = '/var/tmp'
 
-default['dynatrace']['tenancy_url'] = 'https://xzv52984.live.dynatrace.com'
+default['dynatrace']['tenancy_url'] = "https://xzv52984.live.dynatrace.com"
+default['tenancy']['uid'] = 'xzv52984'
 
 # default values
 default['extension']['name'] = 'ibmmq_j'

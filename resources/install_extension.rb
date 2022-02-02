@@ -2,6 +2,8 @@
 # To learn more about Custom Resources, see https://docs.chef.io/custom_resources/
 resource_name :install_extension
 
+unified_mode true
+
 property :name, String, name_property: true
 property :version, String
 property :os, String
@@ -31,7 +33,8 @@ action :install do
     directory 'remove_extension_dir' do
         path "#{extension_dir}/custom.remote.python.#{name}"
         recursive true
-        action :delete        
+        action :delete
+        only_if { ::Dir.exist?("#{extension_dir}/custom.remote.python.#{name}") }           
     end
 
     # Install 'unzip' if not present
