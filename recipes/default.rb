@@ -13,29 +13,20 @@ node['extensions'].each do |name, properties|
     end    
 
     # Install Extension on ActiveGate
-    activegate_extensions_install_extension "#{name}" do
+    activegate_extensions_extension "#{name}" do
         extension_repo "#{node.default['extension_repo']}"
         version "#{properties['version']}"                       
         os "#{properties['os']}"        
         extension_dir "#{node.default['activegate']['extension_dir']}"
-        tmp_dir "#{node.default['activegate']['tmp_dir']}"        
-        action :install
-        extend ActivegateExtensions::Exists
-        only_if {install_ext?("#{node['activegate']['extension_dir']}/custom.remote.python.#{name}/plugin.json", "#{properties['version']}")}        
-    end    
-
-    # Upload Extension to tenancy
-    activegate_extensions_upload_extension 'upload-ext' do        
-        name "#{name}"
-        version "#{properties['version']}"                
-        tmp_dir "#{node.default['activegate']['tmp_dir']}"        
+        tmp_dir "#{node.default['activegate']['tmp_dir']}"
         tenancy_url "#{node.default['dynatrace']['tenancy_url']}"
-        api_token "#{node.default['dynatrace']['api_token']}" # Token attribute file is local and not in repository
-        action :upload
-    end
+        api_token "#{node.default['dynatrace']['api_token']}" # Token attribute file is local and not in repository      
+        action [:install, :upload]                
+    end    
 
     log 'updated_version' do
-        message "Extension updated to  #{name} - #{properties['version']}"
+        message "Extension version post Chef run -  #{name} - #{properties['version']}"
         level :info
-    end    
+    end
+        
 end
