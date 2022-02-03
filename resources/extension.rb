@@ -1,9 +1,7 @@
 # To learn more about Custom Resources, see https://docs.chef.io/custom_resources/
-# To learn more about Custom Resources, see https://docs.chef.io/custom_resources/
-# To learn more about Custom Resources, see https://docs.chef.io/custom_resources/
 resource_name :extension
 
-# unified_mode true
+unified_mode true
 
 property :name, String, name_property: true
 property :version, String

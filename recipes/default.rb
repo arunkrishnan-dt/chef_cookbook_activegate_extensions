@@ -13,7 +13,7 @@ node['extensions'].each do |name, properties|
     end    
 
     # Install Extension on ActiveGate
-    activegate_extensions_install_extension "#{name}" do
+    activegate_extensions_extension "#{name}" do
         extension_repo "#{node.default['extension_repo']}"
         version "#{properties['version']}"                       
         os "#{properties['os']}"        

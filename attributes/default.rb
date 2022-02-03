@@ -19,7 +19,7 @@ default['extensions'] = {
         'os' => '.linux'
     },
     'datapowerxml'   => {
-        'version' => '1.107',
+        'version' => '1.106',
         'os' => ''
     }
 }
