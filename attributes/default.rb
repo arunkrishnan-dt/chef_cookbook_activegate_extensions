@@ -7,7 +7,7 @@ default['tenancy']['uid'] = 'xzv52984'
 
 default['extensions'] = {
     'ibmmq_java' => { 
-        'version' => '2.020.10',
+        'version' => '2.021.1',
         'os' => ''
     },
     'mssql' => {

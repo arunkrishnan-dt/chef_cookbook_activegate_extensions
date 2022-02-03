@@ -1,6 +1,7 @@
 # To learn more about Custom Resources, see https://docs.chef.io/custom_resources/
 # To learn more about Custom Resources, see https://docs.chef.io/custom_resources/
-resource_name :install_extension
+# To learn more about Custom Resources, see https://docs.chef.io/custom_resources/
+resource_name :extension
 
 # unified_mode true
 
