@@ -2,27 +2,27 @@
 # To learn more about Custom Resources, see https://docs.chef.io/custom_resources/
 resource_name :install_extension
 
-unified_mode true
+# unified_mode true
 
 property :name, String, name_property: true
 property :version, String
 property :os, String
-property :download_repo, String
+property :extension_repo, String
 property :extension_dir, String
 property :tmp_dir, String
 
 
 action :install do
-    download_repo =  new_resource.download_repo,
-    name =  new_resource.name,
-    version =  new_resource.version,
-    os = new_resource.os,
+    extension_repo =  new_resource.extension_repo
+    name =  new_resource.name
+    version =  new_resource.version
+    os = new_resource.os
     tmp_dir =  new_resource.tmp_dir
     extension_dir = new_resource.extension_dir
 
     #Download ZIP file
     remote_file "download_zip" do
-        source "https://dt-cdn.net/hub/extensions/custom.remote.python.#{name}/custom.remote.python.#{name}-#{version}#{os}.zip"
+        source "#{extension_repo}/custom.remote.python.#{name}/custom.remote.python.#{name}-#{version}#{os}.zip"
         path "#{tmp_dir}/custom.remote.python.#{name}.zip"
         owner 'dtuserag'
         group 'dtuserag'

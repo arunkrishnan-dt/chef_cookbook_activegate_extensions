@@ -45,7 +45,7 @@ action :upload do
         ext_version = response_json['version']
         puts "Tenancy #{name} version is #{ext_version}"
 
-        if "#{ext_version}" != "#{version}"
+        if ext_version != version
             # Upload new version
             post_response = https.request(request)
             puts post_response
