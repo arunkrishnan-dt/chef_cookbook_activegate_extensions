@@ -8,6 +8,8 @@ Modify `attributes/default.rb` with values according to your environment.
 
 Provide API_TOKEN value as `default['dynatrace']['api_token']` adhering to your organization's standards (Value not shown set in cookbook).
 
+API_TOKEN permissions required: `ReadConfig` & `WriteConfig`.
+
 <br/>
 
 ## Specifying extensions to Install/Update
