@@ -6,7 +6,7 @@ Chef cookbook to manage ActiveGate extensions 1.0 - Install & Update
 
 Modify `attributes/default.rb` with values according to your environment.
 
-Provide API_TOKEN value adhering to your organization's standards (Value not shown set in cookbook).
+Provide API_TOKEN value as `default['dynatrace']['api_token']` adhering to your organization's standards (Value not shown set in cookbook).
 
 <br/>
 
